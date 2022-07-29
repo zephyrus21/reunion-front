@@ -12,8 +12,8 @@ type Data = {
     width: number;
     breadth: number;
   };
-  beds: number;
-  baths: number;
+  beds: String;
+  baths: String;
 }[];
 
 const handler = (req: NextApiRequest, res: NextApiResponse<Data>) => {
@@ -30,8 +30,8 @@ const handler = (req: NextApiRequest, res: NextApiResponse<Data>) => {
         width: 5.4,
         breadth: 6.3,
       },
-      beds: 3,
-      baths: 4,
+      beds: "3",
+      baths: "4",
     },
     {
       id: 2,
@@ -45,8 +45,8 @@ const handler = (req: NextApiRequest, res: NextApiResponse<Data>) => {
         width: 2.4,
         breadth: 3.3,
       },
-      beds: 2,
-      baths: 3,
+      beds: "2",
+      baths: "3",
     },
     {
       id: 3,
@@ -60,8 +60,8 @@ const handler = (req: NextApiRequest, res: NextApiResponse<Data>) => {
         width: 4.4,
         breadth: 5.2,
       },
-      beds: 3,
-      baths: 3,
+      beds: "3",
+      baths: "3",
     },
     {
       id: 4,
@@ -75,8 +75,8 @@ const handler = (req: NextApiRequest, res: NextApiResponse<Data>) => {
         width: 3.5,
         breadth: 4.2,
       },
-      beds: 3,
-      baths: 4,
+      beds: "3",
+      baths: "4",
     },
   ]);
 };
