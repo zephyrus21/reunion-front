@@ -5,7 +5,7 @@ type Data = {
   name: String;
   address: String;
   location: String;
-  price: String;
+  price: number;
   popular: boolean;
   type: String;
   area: {

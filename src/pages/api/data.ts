@@ -5,7 +5,7 @@ type Data = {
   name: String;
   address: String;
   location: String;
-  price: String;
+  price: number;
   popular: boolean;
   type: String;
   area: {
@@ -23,9 +23,9 @@ const handler = (req: NextApiRequest, res: NextApiResponse<Data>) => {
       name: "The Mill House",
       address: "123 Main St, New York, NY 10001",
       location: "New York",
-      price: "2,940",
+      price: 2940,
       popular: true,
-      type: "House",
+      type: "house",
       area: {
         width: 5.4,
         breadth: 6.3,
@@ -38,9 +38,9 @@ const handler = (req: NextApiRequest, res: NextApiResponse<Data>) => {
       name: "Holmeswood",
       address: "412 Park Ave, New York, NY 10001",
       location: "New York",
-      price: "1,240",
+      price: 1240,
       popular: true,
-      type: "House",
+      type: "apartment",
       area: {
         width: 2.4,
         breadth: 3.3,
@@ -53,9 +53,9 @@ const handler = (req: NextApiRequest, res: NextApiResponse<Data>) => {
       name: "The River Side",
       address: "43 Apple St, Los Angeles, CA 90001",
       location: "Los Angeles",
-      price: "2,300",
+      price: 2300,
       popular: true,
-      type: "House",
+      type: "house",
       area: {
         width: 4.4,
         breadth: 5.2,
@@ -68,9 +68,9 @@ const handler = (req: NextApiRequest, res: NextApiResponse<Data>) => {
       name: "Hunters Wood",
       address: "29 West St, Austin, TX 78701",
       location: "Austin",
-      price: "1,240",
+      price: 1240,
       popular: false,
-      type: "House",
+      type: "villa",
       area: {
         width: 3.5,
         breadth: 4.2,
