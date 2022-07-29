@@ -3,52 +3,29 @@ import NavBar from "@components/NavBar";
 import type { NextPage } from "next";
 import Head from "next/head";
 import { useEffect, useState } from "react";
-import { Data } from "src/types/data";
+import {
+  bathsOptions,
+  bedsOptions,
+  Data,
+  locationOptions,
+  priceOptions,
+  typeOptions,
+} from "src/types/data";
 
 const Home: NextPage = () => {
   const [data, setData] = useState<Data[]>();
+  const [loading, setLoading] = useState(true);
   const [type, setType] = useState<string>("all");
   const [location, setLocation] = useState<string>("all");
   const [price, setPrice] = useState<string>("all");
   const [beds, setBeds] = useState<string>("all");
   const [baths, setBaths] = useState<string>("all");
 
-  const typeOptions = [
-    { label: "All", value: "all" },
-    { label: "House", value: "house" },
-    { label: "Villa", value: "villa" },
-    { label: "Apartment", value: "apartment" },
-  ];
-  const locationOptions = [
-    { label: "All", value: "all" },
-    { label: "New York", value: "New York" },
-    { label: "Austin", value: "Austin" },
-    { label: "Los Angelas", value: "Los Angelas" },
-  ];
-  const priceOptions = [
-    { label: "All", value: "all" },
-    { label: "$500 - $1,500", value: "1" },
-    { label: "$1,500 - $2,500", value: "2" },
-    { label: "$2,500 - $3,500", value: "3" },
-  ];
-  const bedsOptions = [
-    { label: "All", value: "all" },
-    { label: "2", value: "2" },
-    { label: "3", value: "3" },
-    { label: "4", value: "4" },
-  ];
-  const bathsOptions = [
-    { label: "All", value: "all" },
-    { label: "2", value: "2" },
-    { label: "3", value: "3" },
-    { label: "4", value: "4" },
-    { label: "5", value: "5" },
-  ];
-
   useEffect(() => {
     fetch("/api/data")
       .then((res) => res.json())
       .then((res) => setData(res));
+    setLoading(false);
   }, []);
 
   const filteredData = data
@@ -88,10 +65,15 @@ const Home: NextPage = () => {
         <title>Reunion Front</title>
       </Head>
       <NavBar />
-      <div className='p-6 bg-white rounded-lg mt-28 flex'>
-        <div className='flex flex-col'>
-          <label>Types</label>
-          <select value={type} onChange={(e) => setType(e.target.value)}>
+      <div className='p-6 bg-white rounded-lg mt-28 flex gap-4'>
+        <div>
+          <label className='mb-2 text-sm font-medium text-gray-500'>
+            Types
+          </label>
+          <select
+            value={type}
+            onChange={(e) => setType(e.target.value)}
+            className='bg-transparent border-0 text-gray-900 text-sm rounded-lg block w-28 p-2'>
             {typeOptions.map((option) => (
               <option key={option.value} value={option.value}>
                 {option.label}
@@ -100,10 +82,13 @@ const Home: NextPage = () => {
           </select>
         </div>
         <div>
-          <label>Location</label>
+          <label className='mb-2 text-sm font-medium text-gray-500'>
+            Location
+          </label>
           <select
             value={location}
-            onChange={(e) => setLocation(e.target.value)}>
+            onChange={(e) => setLocation(e.target.value)}
+            className='bg-transparent border-0 text-gray-900 text-sm rounded-lg block w-28 p-2'>
             {locationOptions.map((option) => (
               <option key={option.value} value={option.value}>
                 {option.label}
@@ -112,8 +97,13 @@ const Home: NextPage = () => {
           </select>
         </div>
         <div>
-          <label>Prices</label>
-          <select value={price} onChange={(e) => setPrice(e.target.value)}>
+          <label className='mb-2 text-sm font-medium text-gray-500'>
+            Prices
+          </label>
+          <select
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+            className='bg-transparent border-0 text-gray-900 text-sm rounded-lg block w-28 p-2'>
             {priceOptions.map((option) => (
               <option key={option.value} value={option.value}>
                 {option.label}
@@ -122,8 +112,11 @@ const Home: NextPage = () => {
           </select>
         </div>
         <div>
-          <label>Beds</label>
-          <select value={beds} onChange={(e) => setBeds(e.target.value)}>
+          <label className='mb-2 text-sm font-medium text-gray-500'>Beds</label>
+          <select
+            value={beds}
+            onChange={(e) => setBeds(e.target.value)}
+            className='bg-transparent border-0 text-gray-900 text-sm rounded-lg block w-28 p-2'>
             {bedsOptions.map((option) => (
               <option key={option.value} value={option.value}>
                 {option.label}
@@ -132,8 +125,13 @@ const Home: NextPage = () => {
           </select>
         </div>
         <div>
-          <label>Bathrooms</label>
-          <select value={baths} onChange={(e) => setBaths(e.target.value)}>
+          <label className='mb-2 text-sm font-medium text-gray-500'>
+            Bathrooms
+          </label>
+          <select
+            value={baths}
+            onChange={(e) => setBaths(e.target.value)}
+            className='bg-transparent border-0 text-gray-900 text-sm rounded-lg block w-28 p-2'>
             {bathsOptions.map((option) => (
               <option key={option.value} value={option.value}>
                 {option.label}
@@ -143,13 +141,17 @@ const Home: NextPage = () => {
         </div>
       </div>
 
-      <div className='flex gap-10 flex-wrap m-10 justify-center'>
-        {filteredData?.length == 0 ? (
-          <p>No houses</p>
-        ) : (
-          filteredData?.map((item) => <Card key={item.id} {...item} />)
-        )}
-      </div>
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <div className='flex gap-10 flex-wrap m-10 justify-center'>
+          {filteredData?.length == 0 ? (
+            <p>No houses</p>
+          ) : (
+            filteredData?.map((item) => <Card key={item.id} {...item} />)
+          )}
+        </div>
+      )}
     </div>
   );
 };
