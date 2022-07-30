@@ -1,17 +1,10 @@
+import { useEffect, useState } from "react";
+import type { NextPage } from "next";
+import Head from "next/head";
+import { Data } from "src/types/data";
 import Card from "@components/Card";
 import NavBar from "@components/NavBar";
 import Sorting from "@components/Sorting";
-import type { NextPage } from "next";
-import Head from "next/head";
-import { useEffect, useState } from "react";
-import {
-  bathsOptions,
-  bedsOptions,
-  Data,
-  locationOptions,
-  priceOptions,
-  typeOptions,
-} from "src/types/data";
 
 const Home: NextPage = () => {
   const [data, setData] = useState<Data[]>();
