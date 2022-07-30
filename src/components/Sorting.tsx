@@ -57,14 +57,18 @@ const Sorting: NextPage<any> = ({
     setFilteredData(filData);
   }, [data, type, location, price, beds, baths, setFilteredData]);
 
+  const labelClass = "mb-2 text-sm font-medium text-gray-500";
+  const selectClass =
+    "bg-transparent border-0 text-gray-900 text-sm rounded-lg block w-28 p-2";
+
   return (
     <div className='p-6 bg-white rounded-lg mt-28 flex gap-4'>
       <div>
-        <label className='mb-2 text-sm font-medium text-gray-500'>Types</label>
+        <label className={labelClass}>Types</label>
         <select
           value={type}
           onChange={(e) => setType(e.target.value)}
-          className='bg-transparent border-0 text-gray-900 text-sm rounded-lg block w-28 p-2'>
+          className={selectClass}>
           {typeOptions.map((option) => (
             <option key={option.value} value={option.value}>
               {option.label}
@@ -73,13 +77,11 @@ const Sorting: NextPage<any> = ({
         </select>
       </div>
       <div>
-        <label className='mb-2 text-sm font-medium text-gray-500'>
-          Location
-        </label>
+        <label className={labelClass}>Location</label>
         <select
           value={location}
           onChange={(e) => setLocation(e.target.value)}
-          className='bg-transparent border-0 text-gray-900 text-sm rounded-lg block w-28 p-2'>
+          className={selectClass}>
           {locationOptions.map((option) => (
             <option key={option.value} value={option.value}>
               {option.label}
@@ -88,11 +90,11 @@ const Sorting: NextPage<any> = ({
         </select>
       </div>
       <div>
-        <label className='mb-2 text-sm font-medium text-gray-500'>Prices</label>
+        <label className={labelClass}>Prices</label>
         <select
           value={price}
           onChange={(e) => setPrice(e.target.value)}
-          className='bg-transparent border-0 text-gray-900 text-sm rounded-lg block w-28 p-2'>
+          className={selectClass}>
           {priceOptions.map((option) => (
             <option key={option.value} value={option.value}>
               {option.label}
@@ -101,11 +103,11 @@ const Sorting: NextPage<any> = ({
         </select>
       </div>
       <div>
-        <label className='mb-2 text-sm font-medium text-gray-500'>Beds</label>
+        <label className={labelClass}>Beds</label>
         <select
           value={beds}
           onChange={(e) => setBeds(e.target.value)}
-          className='bg-transparent border-0 text-gray-900 text-sm rounded-lg block w-28 p-2'>
+          className={selectClass}>
           {bedsOptions.map((option) => (
             <option key={option.value} value={option.value}>
               {option.label}
@@ -114,13 +116,11 @@ const Sorting: NextPage<any> = ({
         </select>
       </div>
       <div>
-        <label className='mb-2 text-sm font-medium text-gray-500'>
-          Bathrooms
-        </label>
+        <label className={labelClass}>Bathrooms</label>
         <select
           value={baths}
           onChange={(e) => setBaths(e.target.value)}
-          className='bg-transparent border-0 text-gray-900 text-sm rounded-lg block w-28 p-2'>
+          className={selectClass}>
           {bathsOptions.map((option) => (
             <option key={option.value} value={option.value}>
               {option.label}

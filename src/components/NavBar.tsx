@@ -7,6 +7,7 @@ const NavBar: NextPage = () => {
       <Link href={"/"}>
         <p className='text-2xl text-purple-500'>reunion</p>
       </Link>
+      <a href='https://github.com/zephyrus21/reunion-front'>GitHub</a>
     </div>
   );
 };
