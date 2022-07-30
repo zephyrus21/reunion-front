@@ -1,22 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
+import { Data } from "src/types/data";
 
-type Data = {
-  id: number;
-  name: String;
-  address: String;
-  location: String;
-  price: number;
-  popular: boolean;
-  type: String;
-  area: {
-    width: number;
-    breadth: number;
-  };
-  beds: String;
-  baths: String;
-}[];
-
-const handler = (req: NextApiRequest, res: NextApiResponse<Data>) => {
+const handler = (req: NextApiRequest, res: NextApiResponse<Data[]>) => {
   res.status(200).json([
     {
       id: 1,
@@ -38,7 +23,7 @@ const handler = (req: NextApiRequest, res: NextApiResponse<Data>) => {
       name: "Holmeswood",
       address: "412 Park Ave, New York, NY 10001",
       location: "New York",
-      price: 1240,
+      price: 990,
       popular: true,
       type: "apartment",
       area: {
@@ -65,6 +50,66 @@ const handler = (req: NextApiRequest, res: NextApiResponse<Data>) => {
     },
     {
       id: 4,
+      name: "Hunters Wood",
+      address: "29 West St, Austin, TX 78701",
+      location: "Austin",
+      price: 1240,
+      popular: true,
+      type: "villa",
+      area: {
+        width: 3.5,
+        breadth: 4.2,
+      },
+      beds: "3",
+      baths: "4",
+    },
+    {
+      id: 5,
+      name: "Hunters Wood",
+      address: "29 West St, Austin, TX 78701",
+      location: "Austin",
+      price: 1240,
+      popular: false,
+      type: "villa",
+      area: {
+        width: 3.5,
+        breadth: 4.2,
+      },
+      beds: "3",
+      baths: "4",
+    },
+    {
+      id: 6,
+      name: "Hunters Wood",
+      address: "29 West St, Austin, TX 78701",
+      location: "Austin",
+      price: 1240,
+      popular: false,
+      type: "villa",
+      area: {
+        width: 3.5,
+        breadth: 4.2,
+      },
+      beds: "3",
+      baths: "4",
+    },
+    {
+      id: 7,
+      name: "Hunters Wood",
+      address: "29 West St, Austin, TX 78701",
+      location: "Austin",
+      price: 1240,
+      popular: false,
+      type: "villa",
+      area: {
+        width: 3.5,
+        breadth: 4.2,
+      },
+      beds: "3",
+      baths: "4",
+    },
+    {
+      id: 8,
       name: "Hunters Wood",
       address: "29 West St, Austin, TX 78701",
       location: "Austin",

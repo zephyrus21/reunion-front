@@ -24,7 +24,7 @@ export const locationOptions = [
   { label: "All", value: "all" },
   { label: "New York", value: "New York" },
   { label: "Austin", value: "Austin" },
-  { label: "Los Angelas", value: "Los Angelas" },
+  { label: "Los Angeles", value: "Los Angeles" },
 ];
 export const priceOptions = [
   { label: "All", value: "all" },
